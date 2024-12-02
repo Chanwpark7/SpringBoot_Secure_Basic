@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>인증 후 인가(member)를 get 해야 볼 수 있는 member 페이지</h2>
+	<h2 th:text="${#authentication.name}"></h2>
+	<div sec:authorize="hasRole('ADMIN')">ADMIN</div>
+	<div sec:authorize="hasRole('USER')">Has USER ROLE</div>
+	<div sec:authorize="hasRole('MEMBER')">Has MEMBER ROLE</div>
+	<div sec:authorize="hasRole('ADMIN')">Has ADMIN ROLE</div>
+	
+	<div sec:authorize="isAuthenticated()">
+	  Only Authenticated user can see this Text
+	</div>
+	
+	Authenticated username:
+	<div sec:authentication="name"></div>
+	Authenticated user roles:
+	<div sec:authentication="principal.authorities">
+	
+</body>
+</html>
