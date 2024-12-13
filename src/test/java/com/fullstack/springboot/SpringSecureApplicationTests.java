@@ -35,29 +35,29 @@ class SpringSecureApplicationTests {
 //		System.out.println(passwordEncoder.matches(testPw, encPw));
 //	}
 	
-//	void insertDummies() {
-//		IntStream.rangeClosed(1, 100).forEach(value -> {
-//			FullStackMember fullStackMember = FullStackMember.builder()
-//					.email("user"+value+"@abc.com")
-//					.name("사용자"+value)
-//					.formSns(false)
-//					.password(passwordEncoder.encode("1111"))
-//					.build();
-//			
-//			//default role 설정
-//			fullStackMember.addMemberRoleSet(FullStackRole.USER);
-//			if(value>80) {
-//				//80 이상인 경우, member 권한도 줌
-//				fullStackMember.addMemberRoleSet(FullStackRole.MEMBER);
-//			}
-//			if(value>90) {
-//				//90 이상인 경우 admin 권한도 줌
-//				fullStackMember.addMemberRoleSet(FullStackRole.ADMIN);
-//			}
-//			
-//			fullStackMemberRepository.save(fullStackMember);
-//		});
-//	}
+	void insertDummies() {
+		IntStream.rangeClosed(1, 100).forEach(value -> {
+			FullStackMember fullStackMember = FullStackMember.builder()
+					.email("user"+value+"@abc.com")
+					.name("사용자"+value)
+					.formSns(false)
+					.password(passwordEncoder.encode("1111"))
+					.build();
+			
+			//default role 설정
+			fullStackMember.addMemberRoleSet(FullStackRole.USER);
+			if(value>80) {
+				//80 이상인 경우, member 권한도 줌
+				fullStackMember.addMemberRoleSet(FullStackRole.MEMBER);
+			}
+			if(value>90) {
+				//90 이상인 경우 admin 권한도 줌
+				fullStackMember.addMemberRoleSet(FullStackRole.ADMIN);
+			}
+			
+			fullStackMemberRepository.save(fullStackMember);
+		});
+	}
 
 	//유저 정보와 함께 권한도 찾아보기
 	void findMember() {

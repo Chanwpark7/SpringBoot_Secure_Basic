@@ -38,4 +38,20 @@ public class FullStackMember extends BaseEntity {
 	public void addMemberRoleSet(FullStackRole fullStackRole) {
 		roleSet.add(fullStackRole);
 	}
+	
+	public void clearRole() {
+		roleSet.clear();
+	}
+	
+	public void changeName(String name) {
+		this.name = name;
+	}
+	
+	public void changePw(String password) {
+		this.password = password;
+	}
+	
+	public void changeSocial (boolean fromSns) {
+		this.formSns = fromSns;
+	}
 }
